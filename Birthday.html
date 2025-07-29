@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday, My Love!</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to top, #fff0f5, #ffe6f0);
+      color: #c71585;
+      text-align: center;
+      padding-top: 60px;
+      min-height: 100%;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .slideshow-container {
+      position: relative;
+      max-width: 500px;
+      margin: auto;
+      z-index: 2;
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .slide img {
+      width: 50%;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      display: block;
+      margin: auto;
+    }
+
+    .love-message {
+      font-size: 20px;
+      margin-top: 20px;
+      padding: 0 20px;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      background: #ff66a3;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 5px;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #e60073;
+    }
+
+    .flower {
+      position: absolute;
+      font-size: 30px;
+      animation: floatUp 10s linear infinite;
+      z-index: 0;
+      user-select: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-200px) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .final-message {
+      font-size: 22px;
+      margin-top: 20px;
+      color: #d6336c;
+      animation: fadeIn 2s ease-in-out;
+      padding: 0 20px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Happy Birthday, My Love!</h1>
+
+  <div class="slideshow-container" id="slideshow">
+    <div class="slide"><img src="img1.jpg"><div class="love-message">You're the reason my world feels so magical.</div></div>
+    <div class="slide"><img src="img2.jpg"><div class="love-message">Your smile is my favorite sunrise.</div></div>
+    <div class="slide"><img src="img3.jpg"><div class="love-message">Thank you for being my peace in a busy world.</div></div>
+    <div class="slide"><img src="img4.jpg"><div class="love-message">I fall in love with you more every single day.</div></div>
+    <div class="slide"><img src="img5.jpg"><div class="love-message">Life is better with you by my side.</div></div>
+    <div class="slide"><img src="img6.jpg"><div class="love-message">You're my favorite hello and hardest goodbye.</div></div>
+    <div class="slide"><img src="img7.jpg"><div class="love-message">You light up even my darkest days.</div></div>
+    <div class="slide"><img src="img8.jpg"><div class="love-message">With you, every moment becomes a memory.</div></div>
+    <div class="slide"><img src="img9.jpg"><div class="love-message">You are my today and all of my tomorrows.</div></div>
+    <div class="slide">
+      <img src="img10.jpg">
+      <div class="love-message">I love you endlessly. Happy Birthday!</div>
+      <div class="final-message">
+        Since October 16, 2024, the day you came into my life — everything has felt better.<br>
+        You’re my calm, and also the sweet chaos I never want to lose.<br>
+        I feel like the luckiest person in the world that you were born.<br>
+        Because without you, the world would feel incomplete and so would I.<br>
+        <strong>Happy Birthday, Nanu ❤️</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <button onclick="prevSlide()">Previous</button>
+    <button onclick="nextSlide()">Next</button>
+  </div>
+
+  <script>
+    const flowerEmojis = ['🌸','🌹','🌷','💐','🌺'];
+
+    for (let i = 0; i < 30; i++) {
+      const flower = document.createElement("div");
+      flower.className = "flower";
+      flower.innerText = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
+      flower.style.left = Math.random() * 100 + "vw";
+      flower.style.animationDuration = (8 + Math.random() * 5) + "s";
+      flower.style.fontSize = (20 + Math.random() * 30) + "px";
+      document.body.appendChild(flower);
+    }
+
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slide");
+
+    function showSlide(index) {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[index].style.display = "block";
+      window.scrollTo(0, 0); // Scroll to top each time
+    }
+
+    function nextSlide() {
+      slideIndex = (slideIndex + 1) % slides.length;
+      showSlide(slideIndex);
+    }
+
+    function prevSlide() {
+      slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+      showSlide(slideIndex);
+    }
+
+    showSlide(slideIndex);
+  </script>
+
+</body>
+</html>
